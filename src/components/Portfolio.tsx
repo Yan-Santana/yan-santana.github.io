@@ -149,12 +149,7 @@ const Portfolio = () => {
               artificial para criar soluções inovadoras. Sou Bacharel em
               Sistemas de Informação pela Universidade Federal de Mato Grosso do
               Sul (UFMS) e sigo em constante aperfeiçoamento acadêmico e
-              profissional. No LEDES, participei do desenvolvimento de sistemas
-              de gestão para fundações de pesquisa no Brasil, contribuindo para
-              a eficiência e transparência em programas de ciência, tecnologia e
-              inovação. Motiva-me colaborar em projetos que unem tecnologia e
-              impacto social, sempre buscando evolução profissional e
-              aprendizado contínuo.
+              profissional.
             </p>
             <br />
             <p className="text-lg leading-relaxed text-foreground/90">
