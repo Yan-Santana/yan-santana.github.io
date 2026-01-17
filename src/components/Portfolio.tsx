@@ -80,13 +80,12 @@ const Portfolio = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{
             backgroundImage: `url(${heroBackground})`,
             backgroundPosition: "center 30%",
           }}
         />
-        <div className="absolute inset-0 bg-tech-gradient opacity-10" />
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto -mt-20">
           <div className="animate-slide-up">
@@ -145,12 +144,17 @@ const Portfolio = () => {
           </h2>
           <Card className="p-8 bg-card-gradient border-border/20 backdrop-blur-sm">
             <p className="text-lg leading-relaxed text-foreground/90">
-              Atualmente, atuo como estagiário em Desenvolvimento FullStack na
-              Alfaneo Legal AI, aplicando conhecimentos em FastAPI e agentes de
-              inteligência artificial para criar soluções inovadoras.
-              Paralelamente, estou cursando o bacharelado em Sistemas de
-              Informação na Universidade Federal de Mato Grosso do Sul, com
-              conclusão prevista para dezembro de 2025.
+              Atualmente, atuo como Desenvolvedor Full Stack na Alfaneo Legal
+              AI, aplicando conhecimentos em FastAPI e agentes de inteligência
+              artificial para criar soluções inovadoras. Sou Bacharel em
+              Sistemas de Informação pela Universidade Federal de Mato Grosso do
+              Sul (UFMS) e sigo em constante aperfeiçoamento acadêmico e
+              profissional. No LEDES, participei do desenvolvimento de sistemas
+              de gestão para fundações de pesquisa no Brasil, contribuindo para
+              a eficiência e transparência em programas de ciência, tecnologia e
+              inovação. Motiva-me colaborar em projetos que unem tecnologia e
+              impacto social, sempre buscando evolução profissional e
+              aprendizado contínuo.
             </p>
             <br />
             <p className="text-lg leading-relaxed text-foreground/90">
