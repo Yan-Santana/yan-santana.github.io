@@ -11,8 +11,10 @@ import {
   Calendar,
   Award,
   Bot,
+  Download,
 } from "lucide-react";
 import heroBackground from "/image.png";
+import cvPdf from "@/assets/CV_YAN_GONCALVES_SANTANA.pdf";
 
 const Portfolio = () => {
   const skills = [
@@ -49,7 +51,7 @@ const Portfolio = () => {
   const experiences = [
     {
       company: "Alfaneo Legal AI",
-      role: "Estágio em Desenvolvimento FullStack",
+      role: "Desenvolvimento FullStack",
       period: "agosto de 2024 - Present",
       location: "Campo Grande, MS",
       description:
@@ -106,7 +108,7 @@ const Portfolio = () => {
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button
-                variant="default"
+                variant="outline"
                 size="lg"
                 className="animate-glow"
                 onClick={() => {
@@ -118,13 +120,24 @@ const Portfolio = () => {
                 <Mail className="mr-2 h-4 w-4" />
                 Contato
               </Button>
+              <Button variant="outline" size="lg" asChild>
+                <a
+                  href={cvPdf}
+                  download="CV_Yan_Goncalves_Santana.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Download className="mr-2 h-4 w-4" />
+                  Download CV
+                </a>
+              </Button>
               <Button
                 variant="outline"
                 size="lg"
                 onClick={() =>
                   window.open(
                     "https://github.com/Yan-Santana?tab=repositories",
-                    "_blank"
+                    "_blank",
                   )
                 }
               >
@@ -144,21 +157,21 @@ const Portfolio = () => {
           </h2>
           <Card className="p-8 bg-card-gradient border-border/20 backdrop-blur-sm">
             <p className="text-lg leading-relaxed text-foreground/90">
-              Atualmente, atuo como Desenvolvedor Full Stack na Alfaneo Legal
-              AI, aplicando conhecimentos em FastAPI e agentes de inteligência
-              artificial para criar soluções inovadoras. Sou Bacharel em
-              Sistemas de Informação pela Universidade Federal de Mato Grosso do
-              Sul (UFMS) e sigo em constante aperfeiçoamento acadêmico e
-              profissional.
+              Bacharel em Sistemas de Informação pela Universidade Federal de
+              Mato Grosso do Sul (UFMS). Atualmente, atuo como Desenvolvedor
+              FullStack na Alfaneo Legal AI, onde foco no desenvolvimento de
+              soluções utilizando FastAPI e a implementação de agentes de
+              Inteligência Artificial.
             </p>
             <br />
             <p className="text-lg leading-relaxed text-foreground/90">
-              No LEDES, participei do desenvolvimento de sistemas de gestão para
-              fundações de pesquisa no Brasil, contribuindo para a eficiência e
-              transparência em programas de ciência, tecnologia e inovação.
-              Motiva-me colaborar em projetos que unem tecnologia e impacto
-              social, sempre buscando evolução profissional e aprendizado
-              contínuo.
+              Tenho sólida bagagem acadêmica e prática, incluindo minha atuação
+              no LEDES, onde contribuí no desenvolvimento de sistemas de gestão
+              para fundações de pesquisa de grande porte no Brasil, promovendo
+              eficiência e transparência em ciência e tecnologia. Sou movido
+              pelo desafio de unir tecnologia de ponta ao impacto social,
+              buscando constantemente otimizar processos e criar soluções
+              inovadoras.
             </p>
           </Card>
         </div>
@@ -360,7 +373,7 @@ const Portfolio = () => {
                   onClick={() =>
                     window.open(
                       "https://www.linkedin.com/in/yan-g-santana-8b91a5164/",
-                      "_blank"
+                      "_blank",
                     )
                   }
                 >
