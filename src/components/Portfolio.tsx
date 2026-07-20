@@ -14,6 +14,47 @@ import {
 } from "lucide-react";
 import heroBackground from "/image.png";
 
+const companyLinks: Record<string, string> = {
+  LEDES: "https://www.linkedin.com/company/ledes/posts/?feedView=all",
+  Sicredi: "https://www.linkedin.com/company/sicredi/",
+  "Alfaneo Legal AI":
+    "https://www.linkedin.com/company/alfaneo/posts/?feedView=all",
+  "Exército Brasileiro": "https://www.linkedin.com/company/exercito/",
+};
+
+const CompanyName = ({ company }: { company: string }) => {
+  const href = companyLinks[company];
+
+  if (!href) {
+    return <span className="text-primary">{company}</span>;
+  }
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-primary hover:text-soft-white transition-colors"
+    >
+      {company}
+    </a>
+  );
+};
+
+const SectionHeading = ({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <h2
+    className={`text-4xl md:text-[2.75rem] font-bold uppercase tracking-headline text-center mb-12 text-soft-white ${className}`}
+  >
+    {children}
+  </h2>
+);
+
 const Portfolio = () => {
   const skills = [
     "Python",
@@ -48,13 +89,21 @@ const Portfolio = () => {
 
   const experiences = [
     {
+      company: "Sicredi",
+      role: "Analista de Dados",
+      period: "abril de 2026 - Present",
+      location: "Campo Grande, MS",
+      description: `Desenvolvimento de soluções analíticas com foco em Inteligência Artificial utilizando Databricks, Python e SQL. Construção de pipelines de dados, automações e modelos de Machine Learning para geração de insights e apoio à tomada de decisão. Atuação em conjunto com áreas de negócio para identificar oportunidades de aplicação de IA.`,
+      current: true,
+    },
+    {
       company: "Alfaneo Legal AI",
-      role: "Estágio em Desenvolvimento FullStack",
-      period: "agosto de 2024 - Present",
+      role: "Desenvolvedor Python Full Stack | IA ",
+      period: "agosto de 2025 - março de 2026",
       location: "Campo Grande, MS",
       description:
-        "Desenvolvimento de soluções inovadoras aplicando FastAPI e agentes de inteligência artificial.",
-      current: true,
+        "Desenvolvimento de aplicações com Python, FastAPI e React integradas a modelos de Inteligência Artificial. Implementação de arquiteturas RAG, agentes de IA, embeddings, bancos vetoriais, Neo4j e treinamento de modelos de Machine Learning para automação de processos jurídicos.",
+      current: false,
     },
     {
       company: "LEDES",
@@ -62,53 +111,50 @@ const Portfolio = () => {
       period: "novembro de 2023 - abril de 2025",
       location: "Campo Grande, MS",
       description:
-        "Desenvolvimento de sistema de gestão para fundações de pesquisa no Brasil, focando em soluções para C,T&I com transparência pública e democratização de informações.",
-      current: false,
-    },
-    {
-      company: "Exército Brasileiro",
-      role: "Soldado",
-      period: "março de 2020 - janeiro de 2021",
-      location: "Campo Grande, MS",
-      description: "Serviço militar obrigatório.",
+        "Desenvolvimento Full Stack de sistemas de gestão para fundações de pesquisa em todo o Brasil, contribuindo para a evolução do SIGFAP por meio da criação de APIs, novas funcionalidades e melhorias voltadas à transparência, eficiência e gestão de programas de Ciência, Tecnologia e Inovação.",
       current: false,
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900">
+    <div className="min-h-screen bg-deep-black text-soft-white bg-studio-grid">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div className="absolute inset-0 studio-glow-tr pointer-events-none" />
+        <div className="absolute inset-0 studio-glow-bl pointer-events-none" />
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.07]"
           style={{
             backgroundImage: `url(${heroBackground})`,
             backgroundPosition: "center 30%",
           }}
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-deep-black/90 via-deep-black/95 to-deep-black" />
 
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto -mt-20">
+        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto -mt-16">
           <div className="animate-slide-up">
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <h1 className="text-5xl md:text-7xl font-bold bg-tech-gradient bg-clip-text text-transparent">
-                Yan G. Santana
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <h1 className="text-[3.5rem] md:text-6xl lg:text-[4.5rem] text-soft-white">
+                Yan G. <span className="text-primary">Santana</span>
               </h1>
-              <Bot className="h-12 w-12 md:h-16 md:w-16 text-primary animate-pulse" />
+              <Bot className="h-12 w-12 md:h-16 md:w-16 text-primary shrink-0" />
             </div>
-            <h2 className="text-xl md:text-2xl text-muted-foreground mb-8 font-light">
-              Dev Full Stack | Python • FastAPI • Node.js • NestJS • TypeScript
-              • React • Vue.js
-            </h2>
-            <p className="text-lg text-foreground/80 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Desenvolvedor que trabalha com inteligência artificial e
-              desenvolvimento full-stack, buscando criar soluções inovadoras que
-              unem tecnologia e impacto social.
+            <p className="text-sm md:text-base font-medium uppercase tracking-[0.15em] text-soft-white/60 mb-8">
+              Dev Full Stack · Python · FastAPI · Node.js · TypeScript · Data &
+              AI Analyst
+            </p>
+            <p className="text-base md:text-lg text-soft-white/75 mb-12 max-w-2xl mx-auto leading-[1.6] normal-case tracking-normal font-normal">
+              Analista de Dados com foco em Inteligência Artificial,
+              desenvolvendo soluções orientadas por dados na plataforma
+              Databricks. Experiência anterior como Engenheiro de Software,
+              aplicando conhecimentos em Python, FastAPI, Node.js e TypeScript
+              para construir soluções escaláveis, integrar sistemas e
+              transformar dados em valor para o negócio.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button
                 variant="default"
                 size="lg"
-                className="animate-glow"
                 onClick={() => {
                   document.getElementById("contato")?.scrollIntoView({
                     behavior: "smooth",
@@ -119,12 +165,12 @@ const Portfolio = () => {
                 Contato
               </Button>
               <Button
-                variant="outline"
+                variant="ghost"
                 size="lg"
                 onClick={() =>
                   window.open(
                     "https://github.com/Yan-Santana?tab=repositories",
-                    "_blank"
+                    "_blank",
                   )
                 }
               >
@@ -137,46 +183,55 @@ const Portfolio = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-            Sobre Mim
-          </h2>
-          <Card className="p-8 bg-card-gradient border-border/20 backdrop-blur-sm">
-            <p className="text-lg leading-relaxed text-foreground/90">
-              Atualmente, atuo como Desenvolvedor Full Stack na Alfaneo Legal
-              AI, aplicando conhecimentos em FastAPI e agentes de inteligência
-              artificial para criar soluções inovadoras. Sou Bacharel em
-              Sistemas de Informação pela Universidade Federal de Mato Grosso do
-              Sul (UFMS) e sigo em constante aperfeiçoamento acadêmico e
-              profissional.
+      <section className="section-spacing relative border-t border-technical-gray bg-studio-gray/50">
+        <div className="absolute inset-0 studio-glow-tr pointer-events-none opacity-50" />
+        <div className="relative max-w-6xl mx-auto">
+          <SectionHeading>Sobre Mim</SectionHeading>
+          <Card className="p-8 md:p-10 hover:border-primary/40">
+            <p className="text-base md:text-lg leading-[1.6] text-soft-white/85 normal-case tracking-normal font-normal">
+              Atualmente, atuo como Analista de Dados com foco em Inteligência
+              Artificial no Sicredi, desenvolvendo soluções analíticas e
+              apoiando decisões estratégicas por meio de Databricks, Python e
+              SQL. Trabalho na construção de pipelines, análises e soluções
+              orientadas por dados para gerar valor ao negócio.
             </p>
-            <br />
-            <p className="text-lg leading-relaxed text-foreground/90">
-              No LEDES, participei do desenvolvimento de sistemas de gestão para
-              fundações de pesquisa no Brasil, contribuindo para a eficiência e
-              transparência em programas de ciência, tecnologia e inovação.
-              Motiva-me colaborar em projetos que unem tecnologia e impacto
-              social, sempre buscando evolução profissional e aprendizado
-              contínuo.
+
+            <div className="my-6 h-px bg-technical-gray" />
+
+            <p className="text-base md:text-lg leading-[1.6] text-soft-white/85 normal-case tracking-normal font-normal">
+              Minha experiência prática em Inteligência Artificial foi
+              construída na Alfaneo Legal AI, onde atuei como Desenvolvedor
+              Python Full Stack com foco em IA. Participei do desenvolvimento de
+              agentes inteligentes, treinamento e avaliação de modelos e
+              implementação de arquiteturas RAG, utilização de bancos vetoriais,
+              Neo4j, embeddings e processamento de linguagem natural para
+              aplicações do mercado jurídico.
+            </p>
+
+            <div className="my-6 h-px bg-technical-gray" />
+
+            <p className="text-base md:text-lg leading-[1.6] text-soft-white/85 normal-case tracking-normal font-normal">
+              Antes disso, trabalhei como Desenvolvedor Full Stack no LEDES,
+              desenvolvendo sistemas para fundações de pesquisa em todo o
+              Brasil. Essa experiência fortaleceu minha base em engenharia de
+              software, arquitetura de APIs e desenvolvimento de aplicações
+              escaláveis, competências que hoje complemento com dados e
+              Inteligência Artificial. Sou Bacharel em Sistemas de Informação
+              pela Universidade Federal de Mato Grosso do Sul (UFMS) e busco
+              constante evolução na interseção entre Engenharia de Software,
+              Dados e IA.
             </p>
           </Card>
         </div>
       </section>
 
       {/* Skills Section */}
-      <section className="py-20 px-6 bg-secondary/20">
+      <section className="section-spacing border-t border-technical-gray">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-            Principais Competências
-          </h2>
+          <SectionHeading>Principais Competências</SectionHeading>
           <div className="flex flex-wrap gap-3 justify-center">
             {skills.map((skill, index) => (
-              <Badge
-                key={index}
-                variant="secondary"
-                className="px-4 py-2 text-sm bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors"
-              >
+              <Badge key={index} variant="skill" className="px-4 py-2">
                 {skill}
               </Badge>
             ))}
@@ -185,72 +240,33 @@ const Portfolio = () => {
       </section>
 
       {/* Experience Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-            Experiência Profissional
-          </h2>
+      <section className="section-spacing relative border-t border-technical-gray bg-studio-gray/50">
+        <div className="absolute inset-0 studio-glow-bl pointer-events-none opacity-40" />
+        <div className="relative max-w-6xl mx-auto">
+          <SectionHeading>Experiência Profissional</SectionHeading>
           <div className="space-y-6">
             {experiences.map((exp, index) => (
-              <Card
-                key={index}
-                className="p-6 bg-card-gradient border-border/20 backdrop-blur-sm hover:border-primary/30 transition-colors"
-              >
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+              <Card key={index} className="p-8 md:p-10 hover:border-primary/50">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6 gap-4">
                   <div>
-                    <h3 className="text-xl font-semibold text-foreground">
-                      {exp.role}
-                    </h3>
-                    <p className="text-lg text-primary font-medium">
-                      {exp.company === "LEDES" ? (
-                        <a
-                          href="https://www.linkedin.com/company/ledes/posts/?feedView=all"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:underline transition-colors cursor-pointer"
-                        >
-                          {exp.company}
-                        </a>
-                      ) : exp.company === "Alfaneo Legal AI" ? (
-                        <a
-                          href="https://www.linkedin.com/company/alfaneo/posts/?feedView=all"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:underline transition-colors cursor-pointer"
-                        >
-                          {exp.company}
-                        </a>
-                      ) : exp.company === "Exército Brasileiro" ? (
-                        <a
-                          href="https://www.linkedin.com/company/exercito/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:underline transition-colors cursor-pointer"
-                        >
-                          {exp.company}
-                        </a>
-                      ) : (
-                        exp.company
-                      )}
+                    <h3 className="text-soft-white">{exp.role}</h3>
+                    <p className="text-lg font-semibold mt-2">
+                      <CompanyName company={exp.company} />
                     </p>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mt-2">
-                      <span className="flex items-center gap-1">
-                        <Calendar className="h-4 w-4" />
+                    <div className="flex flex-wrap items-center gap-6 text-xs md:text-sm font-medium text-soft-white/50 mt-4 uppercase tracking-wide">
+                      <span className="flex items-center gap-2">
+                        <Calendar className="h-4 w-4 text-primary" />
                         {exp.period}
                       </span>
-                      <span className="flex items-center gap-1">
-                        <MapPin className="h-4 w-4" />
+                      <span className="flex items-center gap-2">
+                        <MapPin className="h-4 w-4 text-primary" />
                         {exp.location}
                       </span>
                     </div>
                   </div>
-                  {exp.current && (
-                    <Badge className="bg-primary text-primary-foreground">
-                      Atual
-                    </Badge>
-                  )}
+                  {exp.current && <Badge className="self-start">Atual</Badge>}
                 </div>
-                <p className="text-foreground/80 leading-relaxed">
+                <p className="text-base md:text-lg text-soft-white/75 leading-[1.6] normal-case tracking-normal font-normal">
                   {exp.description}
                 </p>
               </Card>
@@ -260,12 +276,11 @@ const Portfolio = () => {
       </section>
 
       {/* Education & Certifications */}
-      <section className="py-20 px-6 bg-secondary/20">
+      <section className="section-spacing border-t border-technical-gray">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Education */}
+          <div className="grid md:grid-cols-2 gap-12 md:gap-6">
             <div>
-              <h2 className="text-3xl font-bold mb-8 text-foreground">
+              <h2 className="text-4xl md:text-[2.75rem] font-bold uppercase tracking-headline mb-8 text-soft-white">
                 Formação
               </h2>
               <a
@@ -273,23 +288,22 @@ const Portfolio = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Card className="p-6 bg-card-gradient border-border/20 hover:border-primary/30 hover:bg-primary/5 transition-colors cursor-pointer">
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                <Card className="p-8 md:p-10 hover:border-primary/50 cursor-pointer group">
+                  <h3 className="text-soft-white group-hover:text-primary transition-colors">
                     Bacharelado em Sistema de Informação
                   </h3>
-                  <p className="text-primary font-medium mb-2">
+                  <p className="text-primary font-semibold mt-3 mb-3 normal-case tracking-normal">
                     Universidade Federal de Mato Grosso do Sul
                   </p>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-soft-white/50 text-xs md:text-sm font-medium uppercase tracking-wide">
                     março de 2022 - dezembro de 2025
                   </p>
                 </Card>
               </a>
             </div>
 
-            {/* Certifications */}
             <div>
-              <h2 className="text-3xl font-bold mb-8 text-foreground">
+              <h2 className="text-4xl md:text-[2.75rem] font-bold uppercase tracking-headline mb-8 text-soft-white">
                 Certificações
               </h2>
               <div className="space-y-3">
@@ -299,10 +313,12 @@ const Portfolio = () => {
                     href={cert.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-3 bg-card rounded-lg border border-border/20 hover:border-primary/30 hover:bg-primary/5 transition-colors cursor-pointer"
+                    className="flex items-center gap-4 p-5 bg-studio-gray border border-technical-gray hover:border-primary/50 transition-all duration-300 cursor-pointer group"
                   >
-                    <Award className="h-5 w-5 text-primary" />
-                    <span className="text-foreground">{cert.name}</span>
+                    <Award className="h-5 w-5 text-primary shrink-0 group-hover:shadow-glow-red" />
+                    <span className="text-soft-white font-medium normal-case tracking-normal group-hover:text-primary transition-colors">
+                      {cert.name}
+                    </span>
                   </a>
                 ))}
               </div>
@@ -312,41 +328,43 @@ const Portfolio = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contato" className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-12 text-foreground">
-            Vamos Conversar?
-          </h2>
-          <Card className="p-8 bg-card-gradient border-border/20 backdrop-blur-sm">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <div className="flex items-center justify-center md:justify-start gap-3">
-                  <MapPin className="h-5 w-5 text-primary" />
+      <section
+        id="contato"
+        className="section-spacing relative border-t border-technical-gray bg-studio-gray/50"
+      >
+        <div className="absolute inset-0 studio-glow-tr pointer-events-none" />
+        <div className="relative max-w-4xl mx-auto text-center">
+          <SectionHeading>Vamos Conversar?</SectionHeading>
+          <Card className="p-8 md:p-10 text-left">
+            <div className="grid md:grid-cols-2 gap-10">
+              <div className="space-y-6">
+                <div className="flex items-center justify-center md:justify-start gap-3 border-b border-technical-gray pb-4">
+                  <MapPin className="h-5 w-5 text-primary shrink-0" />
                   <a
                     href="https://www.google.com/maps/place/Campo+Grande,+MS/@-20.4772503,-54.6276723,11.66z/data=!4m6!3m5!1s0x9486e6726b2b9f27:0xf5a8469ebc84d2c1!8m2!3d-20.4648517!4d-54.6218477!16zL20vMDMzNWR2?entry=ttu&g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-foreground hover:text-primary transition-colors cursor-pointer"
+                    className="text-soft-white/85 hover:text-primary transition-colors normal-case tracking-normal"
                   >
                     Campo Grande, MS
                   </a>
                 </div>
-                <div className="flex items-center justify-center md:justify-start gap-3">
-                  <Phone className="h-5 w-5 text-primary" />
+                <div className="flex items-center justify-center md:justify-start gap-3 border-b border-technical-gray pb-4">
+                  <Phone className="h-5 w-5 text-primary shrink-0" />
                   <a
                     href="https://wa.me/67992734786"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-foreground hover:text-primary transition-colors cursor-pointer"
+                    className="text-soft-white/85 hover:text-primary transition-colors normal-case tracking-normal"
                   >
                     67 99273-4786
                   </a>
                 </div>
-                <div className="flex items-center justify-center md:justify-start gap-3">
-                  <Mail className="h-5 w-5 text-primary" />
+                <div className="flex items-center justify-center md:justify-start gap-3 border-b border-technical-gray pb-4">
+                  <Mail className="h-5 w-5 text-primary shrink-0" />
                   <a
                     href="mailto:yansantana63@gmail.com"
-                    className="text-foreground hover:text-primary transition-colors cursor-pointer"
+                    className="text-soft-white/85 hover:text-primary transition-colors normal-case tracking-normal"
                   >
                     yansantana63@gmail.com
                   </a>
@@ -355,12 +373,12 @@ const Portfolio = () => {
 
               <div className="flex flex-col gap-4">
                 <Button
-                  variant="outline"
-                  className="w-full justify-start"
+                  variant="ghost"
+                  className="w-full justify-start normal-case tracking-normal"
                   onClick={() =>
                     window.open(
                       "https://www.linkedin.com/in/yan-g-santana-8b91a5164/",
-                      "_blank"
+                      "_blank",
                     )
                   }
                 >
@@ -369,8 +387,8 @@ const Portfolio = () => {
                   <ExternalLink className="ml-auto h-4 w-4" />
                 </Button>
                 <Button
-                  variant="outline"
-                  className="w-full justify-start"
+                  variant="ghost"
+                  className="w-full justify-start normal-case tracking-normal"
                   onClick={() =>
                     window.open("https://github.com/Yan-Santana", "_blank")
                   }
@@ -386,10 +404,10 @@ const Portfolio = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-border/20">
+      <footer className="py-10 border-t border-technical-gray bg-deep-black">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <p className="text-muted-foreground">
-            © 2024 Yan G. Santana. Desenvolvido com React & TypeScript.
+          <p className="text-soft-white/40 text-xs md:text-sm font-medium uppercase tracking-wide">
+            © 2026 Yan G. Santana · React & TypeScript
           </p>
         </div>
       </footer>
